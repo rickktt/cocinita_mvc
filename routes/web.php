@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RecetaController;
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,6 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [App\Http\Controllers\ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('recetas', RecetaController::class);
+
+    // API endpoints para estadísticas (solo admin)
+    Route::get('/api/statistics', [StatisticsController::class, 'getStatistics'])->middleware('admin');
 });
 
 require __DIR__.'/auth.php';
