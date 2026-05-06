@@ -14,7 +14,7 @@ class RecetaController extends Controller
     {
         $recetas = Receta::with('autor')->latest()->get();
 
-        // Datos para la gráfica: cuántas recetas tiene cada cocinero
+        // los datos de la gráfica de cuántas recetas tiene cada cocinero
         $cocineros = User::where('rol', 'Cocinero')
             ->withCount('recetas')
             ->get();
@@ -78,8 +78,7 @@ class RecetaController extends Controller
             ->with('success', 'Receta eliminada.');
     }
 
-    // ─── PDF ───────────────────────────────────────────────
-    // Solo Cocineros y Admin pueden generar el PDF
+
     public function pdf(Receta $receta)
     {
         $pdf = Pdf::loadView('recetas.pdf', compact('receta'));
