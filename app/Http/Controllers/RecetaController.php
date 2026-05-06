@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Receta;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RecetaController extends Controller
 {
     public function index()
     {
         $recetas = Receta::with('autor')->latest()->get();
-        return view('recetas.index', compact('recetas'));
+
+        // Datos para la gráfica: cuántas recetas tiene cada cocinero
+        $cocineros = User::where('rol', 'Cocinero')
+            ->withCount('recetas')
+            ->get();
+
+        return view('recetas.index', compact('recetas', 'cocineros'));
     }
 
     public function create()
@@ -68,5 +76,13 @@ class RecetaController extends Controller
 
         return redirect()->route('recetas.index')
             ->with('success', 'Receta eliminada.');
+    }
+
+    // ─── PDF ───────────────────────────────────────────────
+    // Solo Cocineros y Admin pueden generar el PDF
+    public function pdf(Receta $receta)
+    {
+        $pdf = Pdf::loadView('recetas.pdf', compact('receta'));
+        return $pdf->download('receta-' . $receta->id . '.pdf');
     }
 }
