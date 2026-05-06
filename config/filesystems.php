@@ -4,12 +4,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Filesystem Disk
+    | Disco de Sistema de Archivos Predeterminado
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default filesystem disk that should be used
-    | by the framework. The "local" disk, as well as a variety of cloud
-    | based disks are available to your application for file storage.
+    | Disco de almacenamiento predeterminado (local, s3, ftp, etc.)
     |
     */
 
@@ -17,14 +15,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Filesystem Disks
+    | Discos del Sistema de Archivos
     |--------------------------------------------------------------------------
     |
-    | Below you may configure as many filesystem disks as necessary, and you
-    | may even configure multiple disks for the same driver. Examples for
-    | most supported storage drivers are configured here for reference.
+    | Define los discos disponibles para almacenamiento de archivos
     |
-    | Supported drivers: "local", "ftp", "sftp", "s3"
+    | Soportados: "local", "ftp", "sftp", "s3"
     |
     */
 
@@ -64,12 +60,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Symbolic Links
+    | Enlaces Simbólicos
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the symbolic links that will be created when the
-    | `storage:link` Artisan command is executed. The array keys should be
-    | the locations of the links and the values should be their targets.
+    | Configuración de enlaces simbólicos creados al ejecutar `storage:link`
     |
     */
 

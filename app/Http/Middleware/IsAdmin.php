@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class IsAdmin
 {
     /**
-     * Handle an incoming request.
+     * Valida una solicitud entrante.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse)  $next
