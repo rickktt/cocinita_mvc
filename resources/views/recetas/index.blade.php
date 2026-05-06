@@ -1,14 +1,11 @@
 <x-app-layout>
 
-{{-- ═══════════════════════════════════════════
-     GRÁFICA — Solo Cocineros y Admin
-═══════════════════════════════════════════ --}}
 @if(Auth::user()->esCocinero() || Auth::user()->esAdmin())
 <div style="background:#111;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;margin-bottom:36px;">
 
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
         <h2 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff;margin:0;">
-            🔥 Producción de Recetas
+             Producción de Recetas
         </h2>
         <span style="font-size:11px;color:rgba(255,255,255,0.2);background:#1a1a1a;padding:4px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.07);">
             Panel de cocina
