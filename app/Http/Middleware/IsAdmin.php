@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class IsAdmin
 {
@@ -17,7 +19,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() || auth()->user()->rol !== 'Admin') {
+        if (!Auth::check() || Auth::user()->rol !== 'Admin') {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
 
