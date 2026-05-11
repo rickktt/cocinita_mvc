@@ -70,7 +70,7 @@
 
         {{-- Gráficas --}}
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:32px;margin-top:32px;">
-
+            
             {{-- Gráfica de Usuarios por Rol --}}
             <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;">
                 <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:white;margin-bottom:20px;">
@@ -132,7 +132,7 @@
 </div>
 @endif
 
-{{--Esta onda es la vista del asistente--}}
+{{-- ASISTENTE --}}
 @if(Auth::user()->esAsistente())
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;">
 
